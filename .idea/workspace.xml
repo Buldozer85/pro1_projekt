@@ -4,19 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt_Dvorak.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/AdminApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UserApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/listeners/StockTableMouseListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Stock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/renderers/JTableButtonRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/resources/products.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/BaseFrameLayout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/administration/AdministrationFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/administration/InsertProductFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/views/administration/StockTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt_Dvorak.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ShoppingCart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2NhXpFNmpPel7u0ShBpvnopjmpQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -24,18 +55,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Tomas/Desktop/Cetnost.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="AdminApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AdminApp" />
+      <module name="projekt_Dvorak" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AdminApp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,11 +94,48 @@
       <option name="presentableId" value="Default" />
       <updated>1680117472506</updated>
       <workItem from="1680117474567" duration="13000" />
-      <workItem from="1680168412029" duration="1618000" />
+      <workItem from="1680168412029" duration="14863000" />
+      <workItem from="1680199021188" duration="788000" />
+      <workItem from="1680199821347" duration="1831000" />
+      <workItem from="1680260640511" duration="7270000" />
+      <workItem from="1680275106909" duration="1287000" />
+      <workItem from="1680283540338" duration="2834000" />
+      <workItem from="1680290850031" duration="38000" />
+      <workItem from="1680339979016" duration="2720000" />
+      <workItem from="1680352584072" duration="5751000" />
+      <workItem from="1680506421649" duration="3700000" />
+      <workItem from="1680510151597" duration="11693000" />
+      <workItem from="1680527677859" duration="125000" />
+      <workItem from="1680624002882" duration="1253000" />
+      <workItem from="1680630163837" duration="7525000" />
+      <workItem from="1680695582207" duration="5052000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <created>1680170478670</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680170478670</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
