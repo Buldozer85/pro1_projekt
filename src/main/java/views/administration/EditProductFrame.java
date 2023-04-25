@@ -11,6 +11,8 @@ import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EditProductFrame extends BaseFrameLayout {
 
@@ -70,6 +72,22 @@ public class EditProductFrame extends BaseFrameLayout {
             String oldName = this.product.getName();
 
             try {
+                Pattern patternPrice =  Pattern.compile("^[0-9]+[.]?[0-9]*$");
+                Matcher matcherPrice = patternPrice.matcher(priceField.getText());
+
+                if(!matcherPrice.find()) {
+                    JOptionPane.showMessageDialog(this, "Cena byl zadaná ve špatném formátu");
+                    return;
+                }
+
+                Pattern patterStockLeft = Pattern.compile("^[0-9]+$");
+                Matcher matcherStockLeft = patterStockLeft.matcher(stockLeftField.getText());
+
+                if(!matcherStockLeft.find()) {
+                    JOptionPane.showMessageDialog(this, "Počet položek byl zadán ve špatném formátu");
+                    return;
+                }
+
                 this.product.setName(nameField.getText()).setPrice(Double.parseDouble(priceField.getText())).setStockLeft(Integer.parseInt(stockLeftField.getText()));
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Jedno nebo více polí je zadáno ve špatném formátu");
@@ -158,7 +176,7 @@ public class EditProductFrame extends BaseFrameLayout {
     }
 
     private void handleUnsavedWorkExit() {
-        int input = JOptionPane.showConfirmDialog(this, "Opravdu si přejete odejít bez uložení produktu?", "Potvedit odchod", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+        int input = JOptionPane.showConfirmDialog(this, "Opravdu si přejete odejít bez uložení produktu?", "Potvrdit odchod", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
 
         if (input == JOptionPane.OK_OPTION) {
             this.setVisible(false);

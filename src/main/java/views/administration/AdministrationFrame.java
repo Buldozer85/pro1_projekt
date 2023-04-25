@@ -4,26 +4,22 @@ import controllers.ProductController;
 import listeners.StockTableMouseListener;
 import renderers.JTableButtonRenderer;
 import views.BaseFrameLayout;
-
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class AdministrationFrame extends BaseFrameLayout {
 
     public AdministrationFrame() {
         super("Administrace");
         this.setHeight(600)
-        .setWidth(800);
+                .setWidth(800);
 
         JPanel panel = new JPanel();
-
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         this.add(panel);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JTable table = new JTable(new StockTableModel());
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
@@ -32,6 +28,7 @@ public class AdministrationFrame extends BaseFrameLayout {
         table.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tableRenderer));
         table.setRowHeight(30);
         table.addMouseListener(new StockTableMouseListener(this, table));
+        table.setAutoCreateRowSorter(true);
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setSize(this.getWidth(), 200);
@@ -43,12 +40,21 @@ public class AdministrationFrame extends BaseFrameLayout {
         addProduct.addActionListener((e -> {
             ProductController.showInsertProductWindow(this, table);
             this.setVisible(false);
-
         }));
 
-        JButton editProducts = new JButton("Upravit produkty");
+        JButton exportToCSVButton = new JButton("Exportovat produkty");
+
+        exportToCSVButton.addActionListener((l)-> {
+            try {
+                ProductController.exportToCSV();
+                JOptionPane.showMessageDialog(this, "Produkty byly úspěšně exportovány");
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(this, "Při exportování souboru došlo k neošekávané chybě");
+            }
+        });
 
         actionButtonsWrapper.add(addProduct);
+        actionButtonsWrapper.add(exportToCSVButton);
         panel.add(scrollPane);
         panel.add(actionButtonsWrapper);
 

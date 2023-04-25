@@ -12,6 +12,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InsertProductFrame extends BaseFrameLayout {
 
@@ -58,6 +60,22 @@ public class InsertProductFrame extends BaseFrameLayout {
                 Product newProduct = null;
 
                 try {
+                    Pattern patternPrice =  Pattern.compile("^[0-9]+\\.?[0-9]*");
+                    Matcher matcherPrice = patternPrice.matcher(priceField.getText());
+
+                    if(!matcherPrice.find()) {
+                        JOptionPane.showMessageDialog(this, "Cena byl zadaná ve špatném formátu");
+                        return;
+                    }
+
+                    Pattern patterStockLeft = Pattern.compile("^[0-9]+");
+                    Matcher matcherStockLeft = patterStockLeft.matcher(stockLeftField.getText());
+
+                    if(!matcherStockLeft.find()) {
+                        JOptionPane.showMessageDialog(this, "Počet položek byl zadán ve špatném formátu");
+                        return;
+                    }
+
                     newProduct = new Product(nameField.getText(), Double.parseDouble(priceField.getText()), Integer.parseInt(stockLeftField.getText()));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(this, "Jedno nebo více polí je zadáno ve špatném formátu");

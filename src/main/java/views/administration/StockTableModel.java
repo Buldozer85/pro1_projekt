@@ -9,18 +9,22 @@ import javax.swing.table.AbstractTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.List;
 
 public class StockTableModel extends AbstractTableModel  {
 
-    private static final int NAME_COLUMN_INDEX = 0;
+    public static final int NAME_COLUMN_INDEX = 0;
     private static final int STOCK_LEFT_COLUMN_INDEX = 1;
     private static final int PRICE_COLUMN_INDEX = 2;
 
     public static final int EDIT_PRODUCT_ROW = 3;
 
     public static final int DELETE_PRODUCT_ROW = 4;
-    private final String[] columnNames = { "Název", "Počet ks", "Cena (Kč)", "Upravit", "Smazání"};
+    private static final String[] columnNames = { "Název", "Počet ks", "Cena (Kč)", "Upravit", "Smazání"};
+
+    private static final String[] columnNamesWithoutActions = { "Název", "Počet ks", "Cena (Kč)"};
+
 
     private final Class<?>[] columnTypes = new  Class<?>[] {String.class, Integer.class, Double.class, JButton.class, JButton.class};
 
@@ -76,4 +80,11 @@ public class StockTableModel extends AbstractTableModel  {
         StockTableModel.data = data;
     }
 
+    public static String[] getColumnNames() {
+        return columnNames;
+    }
+
+    public static String[] getColumnNamesWithoutActions() {
+        return columnNamesWithoutActions;
+    }
 }

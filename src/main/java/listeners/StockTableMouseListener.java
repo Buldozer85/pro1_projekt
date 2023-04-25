@@ -6,6 +6,8 @@ import views.administration.StockTableModel;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -15,10 +17,12 @@ public class StockTableMouseListener extends MouseAdapter {
     private JFrame parent;
     private JTable table;
 
+
     public StockTableMouseListener(JFrame parent, JTable table) {
         super();
         this.parent = parent;
         this.table = table;
+
 
     }
 
@@ -30,10 +34,9 @@ public class StockTableMouseListener extends MouseAdapter {
         Product product = model.getProductAtRow(table.getSelectedRow());
 
         switch (table.getSelectedColumn()) {
-            case StockTableModel.EDIT_PRODUCT_ROW -> ProductController.showEditProductFrame(product, this.parent, this.table);
+            case StockTableModel.EDIT_PRODUCT_ROW -> ProductController.showEditProductFrame(product, this.parent, table);
             case StockTableModel.DELETE_PRODUCT_ROW -> handleDeleteConfirmation(product);
         }
-
     }
 
     private void handleDeleteConfirmation(Product product) {

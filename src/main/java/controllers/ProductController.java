@@ -2,6 +2,7 @@ package controllers;
 
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -9,19 +10,19 @@ import java.util.*;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.SequenceWriter;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Product;
-import models.Stock;
 import views.administration.EditProductFrame;
 import views.administration.InsertProductFrame;
+import views.administration.StockTableModel;
 
 import javax.swing.*;
 
 public class ProductController {
 
     private static final String STORED_PRODUCTS_FILE = "src/main/java/resources/products.json";
+    private static final String EXPORTED_PRODUCTS_FILE = "src/main/java/resources/export.csv";
 
 
     public static List<Product> getProducts() {
@@ -84,6 +85,22 @@ public class ProductController {
         try (FileWriter fw = new FileWriter(STORED_PRODUCTS_FILE)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.writeValue(fw, newNode);
+        }
+    }
+
+    public static void exportToCSV() throws IOException {
+        try(BufferedWriter wr = new BufferedWriter(new FileWriter(EXPORTED_PRODUCTS_FILE, StandardCharsets.UTF_16))) {
+            List<Product> products = getProducts();
+
+            wr.write(String.join(",", StockTableModel.getColumnNamesWithoutActions() ));
+
+            for (Product p: products) {
+                String line = String.format("\"%s\",%s,%.1f",
+                        p.getName(), p.getStockLeft(), p.getPrice());
+                wr.newLine();
+                wr.write(line);
+            }
+
         }
     }
 
