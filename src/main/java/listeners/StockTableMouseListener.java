@@ -22,8 +22,6 @@ public class StockTableMouseListener extends MouseAdapter {
         super();
         this.parent = parent;
         this.table = table;
-
-
     }
 
     @Override

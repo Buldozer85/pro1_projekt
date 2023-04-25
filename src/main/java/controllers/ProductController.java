@@ -36,6 +36,19 @@ public class ProductController {
         }
     }
 
+    public static HashMap<Product, Integer> getProductsToStore() {
+        HashMap<Product, Integer> products = new HashMap<>();
+
+        for (Product product: getProducts()) {
+            if (product.getStockLeft() == 0) {
+                products.put(product, 0);
+            } else {
+                products.put(product, 1);
+            }
+        }
+        return products;
+    }
+
     public static void showInsertProductWindow(JFrame parent, JTable table) {
         JFrame insertWindow = new InsertProductFrame(parent, table);
     }
