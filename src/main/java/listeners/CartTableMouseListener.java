@@ -1,8 +1,6 @@
 package listeners;
 
 import controllers.CartController;
-import models.ShoppingCart;
-import views.administration.StockTableModel;
 import views.usersApplication.CartFrame;
 import views.usersApplication.CartTableModel;
 
@@ -11,8 +9,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class CartTableMouseListener extends MouseAdapter {
-    JTable table;
-    CartFrame parent;
+    private final JTable table;
+    private CartFrame parent;
 
     public CartTableMouseListener(JTable table, CartFrame parent) {
         super();

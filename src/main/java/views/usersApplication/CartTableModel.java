@@ -98,4 +98,8 @@ public class CartTableModel extends AbstractTableModel {
         data = newData;
         this.fireTableDataChanged();
     }
+
+    public CartFrame getParent() {
+        return this.parent;
+    }
 }

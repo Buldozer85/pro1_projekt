@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="Přidávání do košíku">
-      <change afterPath="$PROJECT_DIR$/src/main/java/listeners/CartTableMouseListener.java" afterDir="false" />
+    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="Zobrazení  a úpravy v košíku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/ShoppingCartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ShoppingCartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/CartTableMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listeners/CartTableMouseListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartTableModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/StoreTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/StoreTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/ShoppingCartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/ShoppingCartItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/CartFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/CartFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/CartTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/CartTableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/StoreTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/StoreTableModel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +106,7 @@
       <workItem from="1682424987900" duration="11140000" />
       <workItem from="1682438056210" duration="47000" />
       <workItem from="1682494466080" duration="2024000" />
-      <workItem from="1682497409843" duration="4559000" />
+      <workItem from="1682497409843" duration="10942000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1680170478670</created>
@@ -151,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682438095758</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Zobrazení  a úpravy v košíku">
+      <created>1682502443498</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682502443498</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +168,9 @@
     <MESSAGE value="Basic Administration" />
     <MESSAGE value="Administrace done bez kategorie" />
     <MESSAGE value="Přidávání do košíku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidávání do košíku" />
+    <MESSAGE value="Zobrazení  aúpravy v košíku" />
+    <MESSAGE value="Zobrazení  a úpravy v košíku" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zobrazení  a úpravy v košíku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,20 +1,25 @@
 package views.usersApplication;
 
+import controllers.CartController;
 import listeners.CartTableMouseListener;
 import models.ShoppingCart;
 import renderers.JTableButtonRenderer;
 import views.BaseFrameLayout;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 public class CartFrame extends BaseFrameLayout {
 
     JLabel priceLabel;
+    JFrame previousFrame;
 
-    public CartFrame() {
+    public CartFrame(JFrame previousFrame) {
         super("Nákupní košík");
+
+        this.previousFrame = previousFrame;
 
         this.setHeight(600)
                 .setWidth(800);
@@ -44,16 +49,32 @@ public class CartFrame extends BaseFrameLayout {
 
         JButton confirmOrderButton = new JButton("Dokončit objednávku");
         confirmOrderButton.addActionListener((e) -> {
+            int input = JOptionPane.showConfirmDialog(this, "Opravdu si přejete dokončit objednávku?","Potvrzení objednávky", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            if(input == JOptionPane.OK_OPTION) {
+                JFileChooser fileChooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+                fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                int state = fileChooser.showOpenDialog(this);
 
+                if(state == JFileChooser.APPROVE_OPTION) {
+                    CartController.confirmOrder(fileChooser.getSelectedFile().getAbsolutePath());
+                }
+
+
+            }
         });
-        informationAboutOrderWrapper.add(confirmOrderButton);
+
+        if(ShoppingCart.shoppingCart.size() != 0) {
+            informationAboutOrderWrapper.add(confirmOrderButton);
+        }
 
         JButton backToStoreButton = new JButton("Zpět do obchodu");
+        backToStoreButton.addActionListener((e)-> {
+            this.setVisible(false);
+            this.previousFrame.setVisible(true);
+        });
         informationAboutOrderWrapper.add(backToStoreButton);
 
-
         panel.add(informationAboutOrderWrapper);
-
     }
 
     public void updatePriceLabel() {
