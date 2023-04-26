@@ -30,6 +30,10 @@ public class ShoppingCartItem {
         return this;
     }
 
+    public double getSumPrice() {
+        return this.productCount * this.product.getPrice();
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

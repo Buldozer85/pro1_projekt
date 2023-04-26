@@ -7,6 +7,7 @@ import models.ShoppingCartItem;
 import views.usersApplication.CartFrame;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
 
 public class CartController {
 
@@ -38,6 +39,15 @@ public class CartController {
         } else {
             JOptionPane.showMessageDialog(parent, "Máte prázdný košík. Pro přístup do souhrnu košíku, musíte přidat alespoň jednu položku");
         }
+    }
+
+
+    public static void removeItemFromCart(ShoppingCartItem shoppingCartItem, AbstractTableModel model) {
+        ShoppingCart.shoppingCart.remove(shoppingCartItem);
+        model.fireTableDataChanged();
+    }
+
+    public static void confirmOrder() {
 
     }
 }

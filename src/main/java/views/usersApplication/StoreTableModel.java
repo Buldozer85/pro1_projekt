@@ -48,6 +48,8 @@ public class StoreTableModel extends AbstractTableModel {
     public Product getProductAtRow(int rowIndex) {
         return (Product) data.keySet().toArray()[rowIndex];
     }
+
+    @Override
     public boolean isCellEditable(int row, int column) {
         return (column == ITEMS_TO_ADD_AREA_INDEX && getProductAtRow(row).getStockLeft() > 0);
     }
