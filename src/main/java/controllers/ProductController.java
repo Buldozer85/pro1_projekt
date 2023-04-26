@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -13,6 +14,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SequenceWriter;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import models.Product;
+import models.ShoppingCart;
+import models.ShoppingCartItem;
 import views.administration.EditProductFrame;
 import views.administration.InsertProductFrame;
 import views.administration.StockTableModel;
@@ -23,7 +26,6 @@ public class ProductController {
 
     private static final String STORED_PRODUCTS_FILE = "src/main/java/resources/products.json";
     private static final String EXPORTED_PRODUCTS_FILE = "src/main/java/resources/export.csv";
-
 
     public static List<Product> getProducts() {
         try {
@@ -40,11 +42,18 @@ public class ProductController {
         HashMap<Product, Integer> products = new HashMap<>();
 
         for (Product product: getProducts()) {
-            if (product.getStockLeft() == 0) {
-                products.put(product, 0);
+            ShoppingCartItem shoppingCartItem = new ShoppingCartItem().setProduct(product);
+            System.out.println(ShoppingCart.shoppingCart.contains(shoppingCartItem));
+            if(ShoppingCart.shoppingCart.contains(shoppingCartItem)) {
+                products.put(shoppingCartItem.getProduct(), shoppingCartItem.getProductCount());
             } else {
-                products.put(product, 1);
+                if (product.getStockLeft() == 0) {
+                    products.put(product, 0);
+                } else {
+                    products.put(product, 1);
+                }
             }
+
         }
         return products;
     }
@@ -94,7 +103,13 @@ public class ProductController {
     }
 
     public static void update(Product product, String productName) throws IOException {
-        JsonNode newNode = getUpdatedJsonNode(product, productName);
+        JsonNode newNode;
+        if(product != null && productName != null) {
+            newNode = getUpdatedJsonNode(product, productName);
+        } else {
+            newNode = getUpdatedJsonNode(null, null);
+        }
+
         try (FileWriter fw = new FileWriter(STORED_PRODUCTS_FILE)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.writeValue(fw, newNode);
@@ -117,19 +132,56 @@ public class ProductController {
         }
     }
 
+/*    public static JsonNode getJsonNodeWithUpdatedStockLeft() throws IOException {
+        try (FileReader fr = new FileReader(STORED_PRODUCTS_FILE)) {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode newNode = mapper.readTree(fr);
+
+            for (JsonNode p : newNode) {
+                ShoppingCartItem item = ShoppingCart.shoppingCart.stream().filter(shoppingCartItem -> {
+                    return shoppingCartItem.getProduct().getName().equals(p.get("name").asText());
+                }).toList().get(0);
+
+                if (item != null) {
+                    ObjectNode objectNode = (ObjectNode) p;
+                    objectNode.put("stock_left", item.getProduct().getStockLeft() - item.getProductCount());
+                    break;
+                }
+            }
+            fr.close();
+            return newNode;
+        }
+    }*/
+
     private static JsonNode getUpdatedJsonNode(Product product, String productName) throws IOException {
         try (FileReader fr = new FileReader(STORED_PRODUCTS_FILE)) {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode newNode = mapper.readTree(fr);
-            System.out.println(newNode);
 
-            for (JsonNode p : newNode) {
-                if (Objects.equals(p.get("name").asText(), productName)) {
-                    ObjectNode objectNode = (ObjectNode) p;
-                    objectNode.put("name", product.getName());
-                    objectNode.put("price", product.getPrice());
-                    objectNode.put("stock_left", product.getStockLeft());
-                    break;
+            if(product != null && productName != null) {
+                for (JsonNode p : newNode) {
+                    if (Objects.equals(p.get("name").asText(), productName)) {
+                        ObjectNode objectNode = (ObjectNode) p;
+                        objectNode.put("name", product.getName());
+                        objectNode.put("price", product.getPrice());
+                        objectNode.put("stock_left", product.getStockLeft());
+                        break;
+                    }
+                }
+            } else {
+                for (JsonNode p : newNode) {
+                    List<ShoppingCartItem> item = ShoppingCart.shoppingCart.stream().filter(shoppingCartItem -> {
+                        return shoppingCartItem.getProduct().getName().equals(p.get("name").asText());
+                    }).toList();
+
+                    if (item.size() == 1) {
+                        System.out.println("xd");
+                        System.out.println(item.get(0).getProduct().getStockLeft());
+                        System.out.println(item.get(0).getProductCount());
+                        ObjectNode objectNode = (ObjectNode) p;
+                        objectNode.put("stock_left", item.get(0).getProduct().getStockLeft());
+                        break;
+                    }
                 }
             }
             fr.close();

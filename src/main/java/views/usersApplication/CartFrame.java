@@ -10,6 +10,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.io.IOException;
 
 public class CartFrame extends BaseFrameLayout {
 
@@ -56,10 +57,16 @@ public class CartFrame extends BaseFrameLayout {
                 int state = fileChooser.showOpenDialog(this);
 
                 if(state == JFileChooser.APPROVE_OPTION) {
-                    CartController.confirmOrder(fileChooser.getSelectedFile().getAbsolutePath());
+                    try {
+                        CartController.confirmOrder(fileChooser.getSelectedFile().getAbsolutePath());
+                        JOptionPane.showMessageDialog(this, "Objednávka byla úspěšně vytvořena");
+                        this.previousFrame.dispose();
+                        this.dispose();
+                        CartController.showStore();
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(this, "Potvrzení objednávky se nepodařilo");
+                    }
                 }
-
-
             }
         });
 
@@ -69,8 +76,9 @@ public class CartFrame extends BaseFrameLayout {
 
         JButton backToStoreButton = new JButton("Zpět do obchodu");
         backToStoreButton.addActionListener((e)-> {
-            this.setVisible(false);
-            this.previousFrame.setVisible(true);
+            this.dispose();
+            this.previousFrame.dispose();
+            CartController.showStore();
         });
         informationAboutOrderWrapper.add(backToStoreButton);
 

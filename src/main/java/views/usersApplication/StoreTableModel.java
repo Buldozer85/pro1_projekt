@@ -54,7 +54,6 @@ public class StoreTableModel extends AbstractTableModel {
         return (column == ITEMS_TO_ADD_AREA_INDEX && getProductAtRow(row).getStockLeft() > 0);
     }
 
-
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Product productAtRow = getProductAtRow(rowIndex);

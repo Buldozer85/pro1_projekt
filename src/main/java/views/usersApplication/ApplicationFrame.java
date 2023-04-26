@@ -29,7 +29,10 @@ public class ApplicationFrame extends BaseFrameLayout {
         this.add(panel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JTable table = new JTable(new StoreTableModel(this));
+        StoreTableModel storeTableModel = new StoreTableModel(this);
+
+        JTable table = new JTable(storeTableModel);
+        storeTableModel.fireTableDataChanged();
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         TableCellRenderer tableRenderer;
         tableRenderer = table.getDefaultRenderer(JButton.class);

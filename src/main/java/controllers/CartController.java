@@ -4,6 +4,7 @@ import exceptions.ItemCountIsOutOfStockException;
 import models.Product;
 import models.ShoppingCart;
 import models.ShoppingCartItem;
+import views.usersApplication.ApplicationFrame;
 import views.usersApplication.CartFrame;
 import views.usersApplication.CartTableModel;
 
@@ -39,7 +40,7 @@ public class CartController {
     public static void showShoppingCart(JFrame parent) {
         CartFrame cartFrame = new CartFrame(parent);
 
-        if(ShoppingCart.getNumberOfItemsInCart() > 0) {
+        if (ShoppingCart.getNumberOfItemsInCart() > 0) {
             cartFrame.setVisible(true);
             parent.setVisible(false);
         } else {
@@ -47,38 +48,44 @@ public class CartController {
         }
     }
 
+    public static void showStore() {
+        ApplicationFrame applicationFrame = new ApplicationFrame();
+        applicationFrame.setVisible(true);
+    }
+
 
     public static void removeItemFromCart(ShoppingCartItem shoppingCartItem, AbstractTableModel model) {
         ShoppingCart.shoppingCart.remove(shoppingCartItem);
         model.fireTableDataChanged();
 
-        if(ShoppingCart.shoppingCart.size() == 0) {
+        if (ShoppingCart.shoppingCart.size() == 0) {
             JOptionPane.showMessageDialog(((CartTableModel) model).getParent(), "Váš nákupní košík je prázdný, vraťte se prosím zpět do obchodu");
         }
     }
 
-    public static void confirmOrder(String filePath) {
+    public static void confirmOrder(String filePath) throws IOException {
         ArrayList<ShoppingCartItem> shoppingCart = ShoppingCart.shoppingCart;
 
-        if(shoppingCart.size() == 0) {
+        if (shoppingCart.size() == 0) {
             return;
         }
 
-        try (FileWriter fw = new FileWriter(filePath + "\\uctenka.txt")){
+        try (FileWriter fw = new FileWriter(filePath + "\\uctenka.txt")) {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d.M.yyyy");
             LocalDateTime now = LocalDateTime.now();
             fw.write("Účtenka za nákup ze : " + dtf.format(now));
-            String pattern = "%sx %s %15s%n Kč";
-            for (ShoppingCartItem shoppingCartItem: shoppingCart) {
-                fw.write("\n" + String.format(pattern, shoppingCartItem.getProductCount(), shoppingCartItem.getProduct().getName(), shoppingCartItem.getSumPrice()));
-                fw.write("\n" + String.format("%30s Kč/ks", shoppingCartItem.getProduct().getPrice() ));
+            fw.write("\n-----------------------------------------");
+            String pattern = "%dx %-10s%n";
+            for (ShoppingCartItem shoppingCartItem : shoppingCart) {
+                fw.write("\n" + String.format(pattern, shoppingCartItem.getProductCount(), shoppingCartItem.getProduct().getName()));
+                fw.write(String.format("%30s Kč%n", shoppingCartItem.getSumPrice()));
+                fw.write(String.format("%30s Kč/ks", shoppingCartItem.getProduct().getPrice()));
                 fw.write("\n-----------------------------------------");
             }
+            fw.write("\n" + String.format("Celková cena: %17s Kč", ShoppingCart.getCartPrice()));
+            ProductController.update(null, null);
+            ShoppingCart.shoppingCart.clear();
 
-            fw.write("\n" + String.format("Celková cena: %30s Kč", ShoppingCart.getCartPrice()));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-
     }
 }
