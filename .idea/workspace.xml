@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="Pretty much working version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/ApplicationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/ApplicationFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/ApplicationFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/ApplicationFrame.class" afterDir="false" />
-    </list>
+    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="handling exit app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +48,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="views.administration.tableModels" />
+      <recent name="views.usersApplication.tableModels" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.UserApp">
     <configuration name="AdminApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AdminApp" />
@@ -106,7 +108,7 @@
       <workItem from="1682497409843" duration="10965000" />
       <workItem from="1682519557396" duration="8703000" />
       <workItem from="1682578493319" duration="9137000" />
-      <workItem from="1682592150692" duration="3349000" />
+      <workItem from="1682592150692" duration="4155000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1680170478670</created>
@@ -185,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682597111746</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="handling exit app">
+      <created>1682598422057</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682598422057</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,14 +210,15 @@
     <MESSAGE value="Tisk účtenky" />
     <MESSAGE value="Dodělávky" />
     <MESSAGE value="Pretty much working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pretty much working version" />
+    <MESSAGE value="handling exit app" />
+    <option name="LAST_COMMIT_MESSAGE" value="handling exit app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
