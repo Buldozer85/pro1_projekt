@@ -15,7 +15,7 @@ import models.ShoppingCart;
 import models.ShoppingCartItem;
 import views.administration.EditProductFrame;
 import views.administration.InsertProductFrame;
-import views.administration.StockTableModel;
+import views.administration.tableModels.StockTableModel;
 import javax.swing.*;
 
 public class ProductController {

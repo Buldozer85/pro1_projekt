@@ -2,7 +2,7 @@ package listeners;
 
 import controllers.ProductController;
 import models.Product;
-import views.administration.StockTableModel;
+import views.administration.tableModels.StockTableModel;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

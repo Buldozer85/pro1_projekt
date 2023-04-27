@@ -4,6 +4,8 @@ import controllers.ProductController;
 import listeners.StockTableMouseListener;
 import renderers.JTableButtonRenderer;
 import views.BaseFrameLayout;
+import views.administration.tableModels.StockTableModel;
+
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;

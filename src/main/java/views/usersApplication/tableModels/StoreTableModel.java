@@ -1,4 +1,4 @@
-package views.usersApplication;
+package views.usersApplication.tableModels;
 
 import controllers.ProductController;
 import exceptions.ItemCountIsOutOfStockException;
@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class StoreTableModel extends AbstractTableModel {
 
     JFrame parent;
-    StoreTableModel(JFrame parent) {
+    public StoreTableModel(JFrame parent) {
         super();
         this.parent = parent;
 

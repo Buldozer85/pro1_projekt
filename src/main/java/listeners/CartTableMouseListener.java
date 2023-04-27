@@ -2,7 +2,7 @@ package listeners;
 
 import controllers.CartController;
 import views.usersApplication.CartFrame;
-import views.usersApplication.CartTableModel;
+import views.usersApplication.tableModels.CartTableModel;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;

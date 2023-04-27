@@ -4,11 +4,15 @@ import controllers.CartController;
 import listeners.StoreTableMouseListener;
 import models.ShoppingCart;
 import renderers.JTableButtonRenderer;
+import services.ApplicationServices;
 import views.BaseFrameLayout;
+import views.usersApplication.tableModels.StoreTableModel;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ApplicationFrame extends BaseFrameLayout {
 
@@ -28,7 +32,7 @@ public class ApplicationFrame extends BaseFrameLayout {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         this.add(panel);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         this.tableModel = new StoreTableModel(this);
 
@@ -63,6 +67,13 @@ public class ApplicationFrame extends BaseFrameLayout {
 
         panel.add(cartInfoWrapper);
 
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                ApplicationServices.handleExit((JFrame) e.getWindow());
+            }
+        });
+
     }
 
     public void setShoppingCartPrice(double shoppingCartPrice) {
@@ -78,4 +89,6 @@ public class ApplicationFrame extends BaseFrameLayout {
     public StoreTableModel getTableModel() {
         return this.tableModel;
     }
+
+
 }

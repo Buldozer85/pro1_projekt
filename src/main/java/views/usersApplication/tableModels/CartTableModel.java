@@ -1,9 +1,10 @@
-package views.usersApplication;
+package views.usersApplication.tableModels;
 
 import controllers.CartController;
 import exceptions.ItemCountIsOutOfStockException;
 import models.ShoppingCart;
 import models.ShoppingCartItem;
+import views.usersApplication.CartFrame;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

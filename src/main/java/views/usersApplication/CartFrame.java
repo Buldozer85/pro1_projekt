@@ -5,12 +5,16 @@ import controllers.ProductController;
 import listeners.CartTableMouseListener;
 import models.ShoppingCart;
 import renderers.JTableButtonRenderer;
+import services.ApplicationServices;
 import views.BaseFrameLayout;
+import views.usersApplication.tableModels.CartTableModel;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class CartFrame extends BaseFrameLayout {
@@ -87,6 +91,13 @@ public class CartFrame extends BaseFrameLayout {
         informationAboutOrderWrapper.add(backToStoreButton);
 
         panel.add(informationAboutOrderWrapper);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                ApplicationServices.handleExit((JFrame) e.getWindow());
+            }
+        });
     }
 
     public void updatePriceLabel() {

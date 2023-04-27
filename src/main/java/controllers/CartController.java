@@ -6,7 +6,7 @@ import models.ShoppingCart;
 import models.ShoppingCartItem;
 import views.usersApplication.ApplicationFrame;
 import views.usersApplication.CartFrame;
-import views.usersApplication.CartTableModel;
+import views.usersApplication.tableModels.CartTableModel;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;

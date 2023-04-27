@@ -5,7 +5,7 @@ import exceptions.ItemCountIsOutOfStockException;
 import models.Product;
 import models.ShoppingCart;
 import views.usersApplication.ApplicationFrame;
-import views.usersApplication.StoreTableModel;
+import views.usersApplication.tableModels.StoreTableModel;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

@@ -1,4 +1,4 @@
-package views.administration;
+package views.administration.tableModels;
 
 import controllers.ProductController;
 import models.Product;
