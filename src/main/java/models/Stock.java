@@ -1,11 +1,7 @@
 package models;
 
 import controllers.ProductController;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Stock {
     private static List<Product> productsInStock = ProductController.getProducts();

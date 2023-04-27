@@ -1,5 +1,7 @@
 package models;
 
+import services.NumberServices;
+
 public class ShoppingCartItem {
     private Product product;
     private Integer productCount;
@@ -31,7 +33,7 @@ public class ShoppingCartItem {
     }
 
     public double getSumPrice() {
-        return this.productCount * this.product.getPrice();
+        return NumberServices.roundDouble(this.productCount * this.product.getPrice());
     }
 
     @Override

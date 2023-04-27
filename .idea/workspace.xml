@@ -4,14 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="Tisk účtenky">
+    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="Dodělávky">
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/NumberServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/CartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/CartTableMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listeners/CartTableMouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/StockTableMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listeners/StockTableMouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listeners/StoreTableMouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listeners/StoreTableMouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ShoppingCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/ShoppingCartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ShoppingCartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/renderers/JTableButtonRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/renderers/JTableButtonRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/resources/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/products.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/administration/InsertProductFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/administration/InsertProductFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/ApplicationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/ApplicationFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/CartTableModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/StoreTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/StoreTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/listeners/CartTableMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listeners/CartTableMouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/listeners/StockTableMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listeners/StockTableMouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/listeners/StoreTableMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listeners/StoreTableMouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/ShoppingCart.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/ShoppingCart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/ApplicationFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/ApplicationFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/CartFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/CartFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/StoreTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/StoreTableModel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +50,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2NhXpFNmpPel7u0ShBpvnopjmpQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,7 +76,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.UserApp">
+  <component name="RunManager" selected="Application.AdminApp">
     <configuration name="AdminApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AdminApp" />
       <module name="projekt_Dvorak" />
@@ -70,8 +93,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UserApp" />
         <item itemvalue="Application.AdminApp" />
+        <item itemvalue="Application.UserApp" />
       </list>
     </recent_temporary>
   </component>
@@ -105,7 +128,9 @@
       <workItem from="1682438056210" duration="47000" />
       <workItem from="1682494466080" duration="2024000" />
       <workItem from="1682497409843" duration="10965000" />
-      <workItem from="1682519557396" duration="8522000" />
+      <workItem from="1682519557396" duration="8703000" />
+      <workItem from="1682578493319" duration="9137000" />
+      <workItem from="1682592150692" duration="2441000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1680170478670</created>
@@ -163,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682515857304</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Dodělávky">
+      <created>1682538580700</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682538580700</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,24 +209,20 @@
     <MESSAGE value="Zobrazení  aúpravy v košíku" />
     <MESSAGE value="Zobrazení  a úpravy v košíku" />
     <MESSAGE value="Tisk účtenky" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tisk účtenky" />
+    <MESSAGE value="Dodělávky" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodělávky" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java</url>
-          <line>68</line>
+          <line>67</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controllers/CartController.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controllers/ProductController.java</url>
-          <line>185</line>
+          <line>180</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

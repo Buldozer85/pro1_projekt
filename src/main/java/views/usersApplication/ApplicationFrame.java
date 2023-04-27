@@ -3,7 +3,6 @@ package views.usersApplication;
 import controllers.CartController;
 import listeners.StoreTableMouseListener;
 import models.ShoppingCart;
-import models.ShoppingCartItem;
 import renderers.JTableButtonRenderer;
 import views.BaseFrameLayout;
 
@@ -13,11 +12,13 @@ import java.awt.*;
 
 public class ApplicationFrame extends BaseFrameLayout {
 
-    private JLabel priceLabel, numberOfItemsInCartLabel;
+    private final JLabel priceLabel, numberOfItemsInCartLabel;
 
     private double shoppingCartPrice;
 
     private int numberOfItemsInCart;
+
+    private final StoreTableModel tableModel;
 
     public ApplicationFrame() {
         super("Obchod");
@@ -29,10 +30,9 @@ public class ApplicationFrame extends BaseFrameLayout {
         this.add(panel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        StoreTableModel storeTableModel = new StoreTableModel(this);
+        this.tableModel = new StoreTableModel(this);
 
-        JTable table = new JTable(storeTableModel);
-        storeTableModel.fireTableDataChanged();
+        JTable table = new JTable(this.tableModel);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         TableCellRenderer tableRenderer;
         tableRenderer = table.getDefaultRenderer(JButton.class);
@@ -55,9 +55,7 @@ public class ApplicationFrame extends BaseFrameLayout {
 
         JButton moveToCartButton = new JButton("Přejít do košíku");
 
-        moveToCartButton.addActionListener((e)-> {
-            CartController.showShoppingCart(this);
-        });
+        moveToCartButton.addActionListener((e)-> CartController.showShoppingCart(this));
 
         cartInfoWrapper.add(this.priceLabel);
         cartInfoWrapper.add(this.numberOfItemsInCartLabel);
@@ -75,5 +73,9 @@ public class ApplicationFrame extends BaseFrameLayout {
     public void setNumberOfItemsInCart(int numberOfItemsInCart) {
        this.numberOfItemsInCart = numberOfItemsInCart;
         this.numberOfItemsInCartLabel.setText("Počet položek v košíku: " + this.numberOfItemsInCart);
+    }
+
+    public StoreTableModel getTableModel() {
+        return this.tableModel;
     }
 }

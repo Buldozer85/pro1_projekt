@@ -5,7 +5,7 @@ import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 public class JTableButtonRenderer implements TableCellRenderer {
-    private TableCellRenderer defaultRenderer;
+    private final TableCellRenderer defaultRenderer;
     public JTableButtonRenderer(TableCellRenderer renderer) {
         defaultRenderer = renderer;
     }

@@ -9,12 +9,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class CartTableMouseListener extends MouseAdapter {
-    private final JTable table;
-    private CartFrame parent;
+    private final CartFrame parent;
 
-    public CartTableMouseListener(JTable table, CartFrame parent) {
+    public CartTableMouseListener( CartFrame parent) {
         super();
-        this.table = table;
         this.parent = parent;
     }
 

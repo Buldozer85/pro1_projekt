@@ -3,7 +3,7 @@ package views.usersApplication;
 import controllers.ProductController;
 import exceptions.ItemCountIsOutOfStockException;
 import models.Product;
-
+import models.ShoppingCart;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.HashMap;
@@ -17,16 +17,17 @@ public class StoreTableModel extends AbstractTableModel {
 
     }
 
-    private static final String[] columnNames = { "Název", "Zbývající počet ks", "Cena (Kč)", "Počet ks", ""};
+    private static final String[] columnNames = { "Název", "Počet položek skladem", "Cena (Kč)", "Počet ks v košíku", "Počet ks pro přidání do košíku", ""};
 
-    private static HashMap<Product, Integer> data = ProductController.getProductsToStore();
-    private final Class<?>[] columnTypes = new  Class<?>[] {String.class, Integer.class, Double.class, Integer.class, JButton.class};
+    private HashMap<Product, Integer> data = ProductController.getProductsToStore();
+    private final Class<?>[] columnTypes = new  Class<?>[] {String.class, Integer.class, Double.class, Integer.class, Integer.class, JButton.class};
 
     public static final int NAME_COLUMN_INDEX = 0;
     public static final int STOCK_LEFT_COLUMN_INDEX = 1;
     private static final int PRICE_COLUMN_INDEX = 2;
-    public static final int ITEMS_TO_ADD_AREA_INDEX = 3;
-    public static final int ADD_ITEM_TO_CART_BUTTON = 4;
+    public static final int ITEMS_IN_CART_COLUMN_INDEX = 3;
+    public static final int ITEMS_TO_ADD_AREA_INDEX = 4;
+    public static final int ADD_ITEM_TO_CART_BUTTON = 5;
 
     @Override
     public int getRowCount() {
@@ -62,6 +63,7 @@ public class StoreTableModel extends AbstractTableModel {
             case NAME_COLUMN_INDEX -> productAtRow.getName();
             case STOCK_LEFT_COLUMN_INDEX -> productAtRow.getStockLeft();
             case PRICE_COLUMN_INDEX -> productAtRow.getPrice();
+            case ITEMS_IN_CART_COLUMN_INDEX -> ShoppingCart.getCountOfOneProductInCart(productAtRow);
             case ITEMS_TO_ADD_AREA_INDEX -> data.get(productAtRow);
             case ADD_ITEM_TO_CART_BUTTON -> new JButton("Přidat do košíku");
             default -> throw new IllegalArgumentException("Odkaz na neexistující sloupec");
@@ -74,12 +76,14 @@ public class StoreTableModel extends AbstractTableModel {
             case STOCK_LEFT_COLUMN_INDEX -> getProductAtRow(row).setStockLeft((Integer) value);
             case ITEMS_TO_ADD_AREA_INDEX -> {
                 Product product = getProductAtRow(row);
-
                 if(product.getStockLeft() < (Integer) value) {
                     JOptionPane.showMessageDialog(parent, new ItemCountIsOutOfStockException().getMessage());
                 }
-                data.replace(getProductAtRow(row),(Integer) value);
             }
         }
+    }
+
+    public void setData(HashMap<Product,Integer> data) {
+        this.data = data;
     }
 }

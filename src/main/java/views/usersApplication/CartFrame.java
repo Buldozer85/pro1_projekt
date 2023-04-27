@@ -1,6 +1,7 @@
 package views.usersApplication;
 
 import controllers.CartController;
+import controllers.ProductController;
 import listeners.CartTableMouseListener;
 import models.ShoppingCart;
 import renderers.JTableButtonRenderer;
@@ -37,7 +38,7 @@ public class CartFrame extends BaseFrameLayout {
         table.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tableRenderer));
         table.setRowHeight(30);
         table.setAutoCreateRowSorter(true);
-        table.addMouseListener(new CartTableMouseListener(table, this));
+        table.addMouseListener(new CartTableMouseListener(this));
 
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setSize(this.getWidth(), 200);
@@ -60,6 +61,8 @@ public class CartFrame extends BaseFrameLayout {
                     try {
                         CartController.confirmOrder(fileChooser.getSelectedFile().getAbsolutePath());
                         JOptionPane.showMessageDialog(this, "Objednávka byla úspěšně vytvořena");
+                        ((ApplicationFrame)this.previousFrame).getTableModel().setData(ProductController.getProductsToStore());
+                        ((ApplicationFrame)this.previousFrame).getTableModel().fireTableDataChanged();
                         this.previousFrame.dispose();
                         this.dispose();
                         CartController.showStore();
@@ -77,8 +80,9 @@ public class CartFrame extends BaseFrameLayout {
         JButton backToStoreButton = new JButton("Zpět do obchodu");
         backToStoreButton.addActionListener((e)-> {
             this.dispose();
-            this.previousFrame.dispose();
-            CartController.showStore();
+            this.previousFrame.setVisible(true);
+            ((ApplicationFrame)this.previousFrame).setShoppingCartPrice(ShoppingCart.getCartPrice());
+            ((ApplicationFrame)this.previousFrame).setNumberOfItemsInCart(ShoppingCart.getNumberOfItemsInCart());
         });
         informationAboutOrderWrapper.add(backToStoreButton);
 

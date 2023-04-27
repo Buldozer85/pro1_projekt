@@ -26,7 +26,7 @@ public class CartTableModel extends AbstractTableModel {
 
     public static final int REMOVE_BUTTON_COLUMN_INDEX = 4;
 
-    private CartFrame parent;
+    private final CartFrame parent;
 
     public CartTableModel(CartFrame parent) {
         super();

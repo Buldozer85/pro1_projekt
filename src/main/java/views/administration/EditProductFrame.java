@@ -1,6 +1,5 @@
 package views.administration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import controllers.ProductController;
 import models.Product;
 import views.BaseFrameLayout;
@@ -16,7 +15,7 @@ import java.util.regex.Pattern;
 
 public class EditProductFrame extends BaseFrameLayout {
 
-    private Product product;
+    private final Product product;
     private JFrame parent;
 
     private JTable table;

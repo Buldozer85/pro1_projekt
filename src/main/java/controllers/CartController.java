@@ -71,13 +71,12 @@ public class CartController {
         }
 
         try (FileWriter fw = new FileWriter(filePath + "\\uctenka.txt")) {
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d.M.yyyy");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d.M.yyyy HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
             fw.write("Účtenka za nákup ze : " + dtf.format(now));
             fw.write("\n-----------------------------------------");
-            String pattern = "%dx %-10s%n";
             for (ShoppingCartItem shoppingCartItem : shoppingCart) {
-                fw.write("\n" + String.format(pattern, shoppingCartItem.getProductCount(), shoppingCartItem.getProduct().getName()));
+                fw.write("\n" + String.format("%dx %-10s%n", shoppingCartItem.getProductCount(), shoppingCartItem.getProduct().getName()));
                 fw.write(String.format("%30s Kč%n", shoppingCartItem.getSumPrice()));
                 fw.write(String.format("%30s Kč/ks", shoppingCartItem.getProduct().getPrice()));
                 fw.write("\n-----------------------------------------");

@@ -6,9 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
-
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SequenceWriter;
@@ -19,7 +16,6 @@ import models.ShoppingCartItem;
 import views.administration.EditProductFrame;
 import views.administration.InsertProductFrame;
 import views.administration.StockTableModel;
-
 import javax.swing.*;
 
 public class ProductController {
@@ -174,13 +170,12 @@ public class ProductController {
                         return shoppingCartItem.getProduct().getName().equals(p.get("name").asText());
                     }).toList();
 
+                    System.out.println(ShoppingCart.shoppingCart);
+                    System.out.println(p.get("name"));
+
                     if (item.size() == 1) {
-                        System.out.println("xd");
-                        System.out.println(item.get(0).getProduct().getStockLeft());
-                        System.out.println(item.get(0).getProductCount());
                         ObjectNode objectNode = (ObjectNode) p;
-                        objectNode.put("stock_left", item.get(0).getProduct().getStockLeft());
-                        break;
+                        objectNode.put("stock_left", item.get(0).getProduct().getStockLeft() - item.get(0).getProductCount());
                     }
                 }
             }
