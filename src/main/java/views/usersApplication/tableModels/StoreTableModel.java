@@ -79,6 +79,8 @@ public class StoreTableModel extends AbstractTableModel {
                 if(product.getStockLeft() < (Integer) value) {
                     JOptionPane.showMessageDialog(parent, new ItemCountIsOutOfStockException().getMessage());
                 }
+
+                data.replace(product, (Integer) value);
             }
         }
     }

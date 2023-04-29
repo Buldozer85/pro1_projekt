@@ -30,6 +30,9 @@ public class CartController {
         if (ShoppingCart.shoppingCart.contains(shoppingCartItem)) {
             int index = ShoppingCart.shoppingCart.indexOf(shoppingCartItem);
             ShoppingCartItem itemInCart = ShoppingCart.shoppingCart.get(index);
+            if(product.getStockLeft() < itemInCart.getProductCount() + 1) {
+                throw new ItemCountIsOutOfStockException();
+            }
             itemInCart.addToProductCount(shoppingCartItem.getProductCount());
             ShoppingCart.shoppingCart.set(index, itemInCart);
         } else {
