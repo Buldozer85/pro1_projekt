@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="handling exit app" />
+    <list default="true" id="1e6ee9eb-4248-4680-85f5-fedba9619a57" name="Changes" comment="fix kontroly počtu ks při přidávání do košíku">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Stock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resources/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resources/1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/ApplicationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/ApplicationFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/views/usersApplication/tableModels/StoreTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/usersApplication/tableModels/StoreTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UserApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UserApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/CartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/CartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/listeners/StockTableMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listeners/StockTableMouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/listeners/StoreTableMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/listeners/StoreTableMouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Stock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/administration/AdministrationFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/administration/AdministrationFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/administration/EditProductFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/administration/EditProductFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/administration/EditProductFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/administration/EditProductFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/administration/InsertProductFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/administration/InsertProductFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/administration/InsertProductFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/administration/InsertProductFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/administration/StockTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/ApplicationFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/ApplicationFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/CartFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/usersApplication/CartFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/usersApplication/StoreTableModel.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,7 +130,11 @@
       <workItem from="1682497409843" duration="10965000" />
       <workItem from="1682519557396" duration="8703000" />
       <workItem from="1682578493319" duration="9137000" />
-      <workItem from="1682592150692" duration="4155000" />
+      <workItem from="1682592150692" duration="4211000" />
+      <workItem from="1682598639311" duration="13000" />
+      <workItem from="1682794344277" duration="666000" />
+      <workItem from="1682846781157" duration="602000" />
+      <workItem from="1682925004087" duration="1856000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1680170478670</created>
@@ -194,7 +220,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682598422057</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="handling exit app">
+      <created>1682598592181</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682598592181</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix kontroly počtu ks při přidávání do košíku">
+      <created>1682795002811</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682795002811</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +251,8 @@
     <MESSAGE value="Dodělávky" />
     <MESSAGE value="Pretty much working version" />
     <MESSAGE value="handling exit app" />
-    <option name="LAST_COMMIT_MESSAGE" value="handling exit app" />
+    <MESSAGE value="fix kontroly počtu ks při přidávání do košíku" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix kontroly počtu ks při přidávání do košíku" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,8 +264,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controllers/ProductController.java</url>
-          <line>180</line>
+          <line>185</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/views/administration/EditProductFrame.java</url>
+          <line>186</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

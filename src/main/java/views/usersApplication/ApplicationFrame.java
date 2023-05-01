@@ -13,6 +13,7 @@ import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 public class ApplicationFrame extends BaseFrameLayout {
 
@@ -22,7 +23,7 @@ public class ApplicationFrame extends BaseFrameLayout {
 
     private int numberOfItemsInCart;
 
-    private final StoreTableModel tableModel;
+    private StoreTableModel tableModel = null;
 
     public ApplicationFrame() {
         super("Obchod");
@@ -34,20 +35,26 @@ public class ApplicationFrame extends BaseFrameLayout {
         this.add(panel);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
-        this.tableModel = new StoreTableModel(this);
+        try {
+            this.tableModel = new StoreTableModel(this);
+            JTable table = new JTable(this.tableModel);
+            table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+            TableCellRenderer tableRenderer;
+            tableRenderer = table.getDefaultRenderer(JButton.class);
+            table.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tableRenderer));
+            table.setRowHeight(30);
+            table.setAutoCreateRowSorter(true);
+            table.addMouseListener(new StoreTableMouseListener(this, table));
 
-        JTable table = new JTable(this.tableModel);
-        table.setPreferredScrollableViewportSize(new Dimension(500, 70));
-        TableCellRenderer tableRenderer;
-        tableRenderer = table.getDefaultRenderer(JButton.class);
-        table.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tableRenderer));
-        table.setRowHeight(30);
-        table.setAutoCreateRowSorter(true);
-        table.addMouseListener(new StoreTableMouseListener(this, table));
+            JScrollPane scrollPane = new JScrollPane(table);
+            scrollPane.setSize(this.getWidth(), 200);
+            panel.add(scrollPane);
+        } catch (IOException e) {
+           JOptionPane.showMessageDialog(this, "Obchod zatím nenabízí žádné produkty");
+           System.exit(0);
+        }
 
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setSize(this.getWidth(), 200);
-        panel.add(scrollPane);
+
 
         JPanel cartInfoWrapper = new JPanel();
 

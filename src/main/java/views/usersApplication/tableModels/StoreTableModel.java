@@ -6,12 +6,13 @@ import models.Product;
 import models.ShoppingCart;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class StoreTableModel extends AbstractTableModel {
 
     JFrame parent;
-    public StoreTableModel(JFrame parent) {
+    public StoreTableModel(JFrame parent) throws IOException {
         super();
         this.parent = parent;
 

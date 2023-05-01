@@ -30,11 +30,11 @@ public class ProductController {
             ArrayList<Product> list = new ArrayList<>(Arrays.asList(objectMapper.readValue(mapData, Product[].class)));
             return list;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return new ArrayList<>();
         }
     }
 
-    public static HashMap<Product, Integer> getProductsToStore() {
+    public static HashMap<Product, Integer> getProductsToStore() throws IOException {
         HashMap<Product, Integer> products = new HashMap<>();
 
         for (Product product: getProducts()) {
@@ -62,7 +62,12 @@ public class ProductController {
         String formattedString = removeClosingBracketFromFile();
 
         try (FileWriter fw = new FileWriter(STORED_PRODUCTS_FILE)) {
-            fw.write(formattedString);
+            if(formattedString.isEmpty()) {
+                fw.write("[");
+            } else {
+                fw.write(formattedString);
+            }
+
             ObjectMapper mapper = new ObjectMapper();
             SequenceWriter sequenceWriter = mapper.writerWithDefaultPrettyPrinter().writeValues(fw);
             sequenceWriter.write(product);
@@ -184,11 +189,16 @@ public class ProductController {
         }
     }
 
-    private static String removeClosingBracketFromFile() throws IOException {
-        StringBuilder fileContent = new StringBuilder(Files.readString(Paths.get(STORED_PRODUCTS_FILE)));
+    private static String removeClosingBracketFromFile()  {
+        try {
+            StringBuilder fileContent = new StringBuilder(Files.readString(Paths.get(STORED_PRODUCTS_FILE)));
+            int indexOfBracket = fileContent.lastIndexOf("]");
+            fileContent.replace(indexOfBracket, indexOfBracket + 1, ",");
+            return fileContent.toString();
+        } catch (IOException e) {
+            return "";
+        }
 
-        int indexOfBracket = fileContent.lastIndexOf("]");
-        fileContent.replace(indexOfBracket, indexOfBracket + 1, ",");
-        return fileContent.toString();
+
     }
 }
