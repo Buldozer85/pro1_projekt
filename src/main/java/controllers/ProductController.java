@@ -39,7 +39,7 @@ public class ProductController {
 
         for (Product product: getProducts()) {
             ShoppingCartItem shoppingCartItem = new ShoppingCartItem().setProduct(product);
-            System.out.println(ShoppingCart.shoppingCart.contains(shoppingCartItem));
+
             if(ShoppingCart.shoppingCart.contains(shoppingCartItem)) {
                 products.put(shoppingCartItem.getProduct(), shoppingCartItem.getProductCount());
             } else {
@@ -49,7 +49,6 @@ public class ProductController {
                     products.put(product, 1);
                 }
             }
-
         }
         return products;
     }
@@ -89,10 +88,7 @@ public class ProductController {
     }
 
     public static void delete(Product product) throws IOException {
-
         List<Product> products = getProducts();
-
-        System.out.println(products.contains(product));
 
         products.remove(product);
 
@@ -133,27 +129,6 @@ public class ProductController {
         }
     }
 
-/*    public static JsonNode getJsonNodeWithUpdatedStockLeft() throws IOException {
-        try (FileReader fr = new FileReader(STORED_PRODUCTS_FILE)) {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode newNode = mapper.readTree(fr);
-
-            for (JsonNode p : newNode) {
-                ShoppingCartItem item = ShoppingCart.shoppingCart.stream().filter(shoppingCartItem -> {
-                    return shoppingCartItem.getProduct().getName().equals(p.get("name").asText());
-                }).toList().get(0);
-
-                if (item != null) {
-                    ObjectNode objectNode = (ObjectNode) p;
-                    objectNode.put("stock_left", item.getProduct().getStockLeft() - item.getProductCount());
-                    break;
-                }
-            }
-            fr.close();
-            return newNode;
-        }
-    }*/
-
     private static JsonNode getUpdatedJsonNode(Product product, String productName) throws IOException {
         try (FileReader fr = new FileReader(STORED_PRODUCTS_FILE)) {
             ObjectMapper mapper = new ObjectMapper();
@@ -174,9 +149,6 @@ public class ProductController {
                     List<ShoppingCartItem> item = ShoppingCart.shoppingCart.stream().filter(shoppingCartItem -> {
                         return shoppingCartItem.getProduct().getName().equals(p.get("name").asText());
                     }).toList();
-
-                    System.out.println(ShoppingCart.shoppingCart);
-                    System.out.println(p.get("name"));
 
                     if (item.size() == 1) {
                         ObjectNode objectNode = (ObjectNode) p;

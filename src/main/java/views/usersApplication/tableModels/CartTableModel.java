@@ -95,11 +95,6 @@ public class CartTableModel extends AbstractTableModel {
         }
     }
 
-    public void setData(ArrayList<ShoppingCartItem> newData) {
-        data = newData;
-        this.fireTableDataChanged();
-    }
-
     public CartFrame getParent() {
         return this.parent;
     }

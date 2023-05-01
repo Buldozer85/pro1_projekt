@@ -3,12 +3,15 @@ package views.administration;
 import controllers.ProductController;
 import listeners.StockTableMouseListener;
 import renderers.JTableButtonRenderer;
+import services.ApplicationServices;
 import views.BaseFrameLayout;
 import views.administration.tableModels.StockTableModel;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class AdministrationFrame extends BaseFrameLayout {
@@ -21,7 +24,7 @@ public class AdministrationFrame extends BaseFrameLayout {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         this.add(panel);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 
         JTable table = new JTable(new StockTableModel());
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
@@ -59,6 +62,13 @@ public class AdministrationFrame extends BaseFrameLayout {
         actionButtonsWrapper.add(exportToCSVButton);
         panel.add(scrollPane);
         panel.add(actionButtonsWrapper);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                ApplicationServices.handleExit((JFrame) e.getSource());
+            }
+        });
 
         this.setVisible(true);
     }
